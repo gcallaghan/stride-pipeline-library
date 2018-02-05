@@ -6,6 +6,7 @@ def call() {
         def result = (gitLog =~ /\s*([A-Z]+-[0-9]+)/)
         try {
             def jiraIssue = (result[0][0]).trim()
+            JIRA_ISSUE = jiraIssue
             return jiraIssue
             } catch (Exception ex) {
                 return null
