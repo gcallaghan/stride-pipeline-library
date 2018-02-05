@@ -1,4 +1,5 @@
 def call() {
+    echo "${env.BRANCH_NAME}"
     def jiraIssue = ( "${env.BRANCH_NAME}" =~ /\s*([A-Z]+-[0-9]+)/ )
     echo "Jira isssue is ${jiraIssue}"
     env.JIRA_ISSUE = jiraIssue
