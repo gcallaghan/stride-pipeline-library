@@ -13,7 +13,7 @@ class Stride {
         client.ignoreSSLIssues()
         def response = client.get(path: fullPath)
         println response.data
-        return response.data
+        return response.data['cloudId']
     }
 }
 
