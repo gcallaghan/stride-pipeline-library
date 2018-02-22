@@ -3,7 +3,7 @@
 
 def call() {
     println "success"
-    def stride = new Stride()
+    def stride = new org.lib.Stride()
     println stride.sendSuccess()
 //    return 0
 }
