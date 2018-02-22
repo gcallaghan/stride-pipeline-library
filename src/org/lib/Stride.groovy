@@ -24,7 +24,7 @@ class Stride {
             }
         """
 
-        def inputJson = new JsonSlurper().parse(textBody)
+        def inputJson = new JsonSlurper().parseText(textBody)
         RESTClient client = new RESTClient(clientHostName)
         client.headers['Authorization'] = authToken
         client.ignoreSSLIssues()
