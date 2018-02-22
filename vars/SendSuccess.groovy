@@ -1,8 +1,8 @@
 #!/bin/env groovy
 
 
-def call(clientHostName, authToken) {
-    echo "success"
+def call() {
+    println "success"
     def stride = new org.lib.Stride()
     stride.sendSuccess()
 //    RESTClient client = new RESTClient(clientHostName)
