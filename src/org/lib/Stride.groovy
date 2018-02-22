@@ -7,9 +7,14 @@ import static groovyx.net.http.ContentType.*
 
 class Stride {
 
-    String sendSuccess() {
-        println "testSuccess"
-        return "sendSuccess is working"
+    String sendSuccess(clientHostName,fullPath,authToken) {
+
+        RESTClient client = new RESTClient(clientHostName)
+        String plainTextToken = "PasswordIsAuthToken:" + authToken
+        def authorizationToken = plainTextToken.bytes.encodeBase64()
+        client.headers['Authorization'] = 'Bearer ' + authorizationToken
+        response = client.get(path: fullPath)
+        return response.data
     }
 }
 
