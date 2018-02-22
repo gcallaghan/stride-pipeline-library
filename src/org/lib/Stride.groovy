@@ -13,6 +13,7 @@ class Stride {
         String plainTextToken = "PasswordIsAuthToken:" + authToken
         def authorizationToken = plainTextToken.bytes.encodeBase64()
         client.headers['Authorization'] = 'Bearer ' + authorizationToken
+        client.ignoreSSLIssues()
         response = client.get(path: fullPath)
         return response.data
     }
