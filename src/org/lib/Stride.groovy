@@ -40,7 +40,7 @@ class Stride {
         client.headers['Authorization'] = authToken
         client.ignoreSSLIssues()
         def body = "<h1 style='font-color: red;'>THIS IS RED</h1>"
-        def response = client.post(path: fullPath, requestContentType: "application/json", body: inputJson)
+        def response = client.post(path: fullPath, requestContentType: "application/json", body: textBody)
         println response.data
         return response.data['cloudId']
     }
