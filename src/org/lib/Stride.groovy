@@ -10,18 +10,29 @@ class Stride {
     String sendSuccess(clientHostName, fullPath, authToken) {
 
         def textBody = """
-                         {
+                        {
+  "version": 1,
+  "type": "doc",
+  "content": [
+    {
+      "type": "panel",
+      "attrs": {
+        "panelType": "warning"
+      },
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
               "type": "text",
-              "text": "Hello world",
-              "marks": [
-                {
-                  "type": "textColor",
-                  "attrs": {
-                    "color": "#97a0af"
-                  }
-                }
-              ]
+              "text": "Build Fail"
             }
+          ]
+        }
+      ]
+    }
+  ]
+}
         """
 
         def inputJson = new JsonSlurper().parseText(textBody)
@@ -29,7 +40,7 @@ class Stride {
         client.headers['Authorization'] = authToken
         client.ignoreSSLIssues()
         def body = "<h1 style='font-color: red;'>THIS IS RED</h1>"
-        def response = client.post(path: fullPath, requestContentType: JSON, body: inputJson)
+        def response = client.post(path: fullPath, requestContentType: "application/json", body: inputJson)
         println response.data
         return response.data['cloudId']
     }
