@@ -11,7 +11,7 @@ class Stride {
         RESTClient client = new RESTClient(clientHostName)
         client.headers['Authorization'] = authToken
         client.ignoreSSLIssues()
-        response = client.get(path: fullPath)
+        def response = client.get(path: fullPath)
         println response.data
         return response.data
     }
