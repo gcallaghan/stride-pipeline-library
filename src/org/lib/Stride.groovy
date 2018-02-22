@@ -11,7 +11,7 @@ class Stride {
         RESTClient client = new RESTClient(clientHostName)
         client.headers['Authorization'] = authToken
         client.ignoreSSLIssues()
-        def response = client.post(path: fullPath, requestContentType: 'text', body: "Building Code from: ")
+        def response = client.post(path: fullPath, requestContentType: 'RAW', body: "Building Code from: ")
         println response.data
         return response.data['cloudId']
     }
