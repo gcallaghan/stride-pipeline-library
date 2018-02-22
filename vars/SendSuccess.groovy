@@ -1,9 +1,9 @@
 #!/bin/env groovy
 
 
-def call() {
+def call(clientHostName,fullPath,authToken) {
     println "success"
     def stride = new org.lib.Stride()
-    println stride.sendSuccess()
+    println stride.sendSuccess(clientHostName,fullPath,authToken)
 //    return 0
 }
