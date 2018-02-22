@@ -1,5 +1,5 @@
 #!/bin/env groovy
-@Grab(group = 'org.codehaus.groovy.modules.http-builder', module = 'http-builder', version = '0.7.1')
+
 
 def call(clientHostName, authToken) {
     echo "success"
