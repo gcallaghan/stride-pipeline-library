@@ -3,6 +3,8 @@
 
 def call(clientHostName, authToken) {
     echo "success"
+    def stride = new org.lib.Stride()
+    stride.sendSuccess()
 //    RESTClient client = new RESTClient(clientHostName)
 //    String plainTextToken = "PasswordIsAuthToken:" + authToken
 //    def authorizationToken = plainTextToken.bytes.encodeBase64()
