@@ -7,8 +7,9 @@ import static groovyx.net.http.ContentType.*
 
 class Stride {
 
-    int sendSuccess() {
+    String sendSuccess() {
         println "testSuccess"
+        return "sendSuccess is working"
     }
 }
 

@@ -4,7 +4,7 @@
 def call() {
     println "success"
     def stride = new org.lib.Stride()
-    stride.sendSuccess()
+    println stride.sendSuccess()
 //    RESTClient client = new RESTClient(clientHostName)
 //    String plainTextToken = "PasswordIsAuthToken:" + authToken
 //    def authorizationToken = plainTextToken.bytes.encodeBase64()
