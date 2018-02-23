@@ -1,16 +1,16 @@
 #!/bin/env groovy
 
 
-def call(messageIcon, clientHostName, fullPath, authToken) {
+def call(conversationId, messageIcon, message) {
     println "Request made to stride"
+
     def stride = new org.lib.Stride()
     if (messageIcon == "warning")
-        stride.sendFailure(clientHostName, fullPath, authToken)
+        stride.sendFailure(conversationId, message, "${env.STRIDE_TOKEN}", "${env.STRIDE_ORGID}")
     else if (messageIcon == "tip") {
-        stride.sendSuccess(clientHostName, fullPath, authToken)
+        stride.sendSuccess(conversationId, message, "${env.STRIDE_TOKEN}", "${env.STRIDE_ORGID}")
     }
     else if( messageIcon == "info") {
-        stride.sendInfo(clientHostName, fullPath, authToken)
+        stride.sendInfo(conversationId, message, "${env.STRIDE_TOKEN}", "${env.STRIDE_ORGID}")
     }
-
 }
