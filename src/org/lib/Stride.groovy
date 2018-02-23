@@ -63,7 +63,7 @@ class Stride {
         println response.data
     }
 
-    def getConversationPath(String orgId, String conversationId) {
+    static def getConversationPath(String orgId, String conversationId) {
         return "/site/${orgId}/conversation/${conversationId}/message"
     }
 }
