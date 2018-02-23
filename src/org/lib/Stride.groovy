@@ -29,11 +29,11 @@ class Stride {
                                                     ],
                                                     [
                                                             type: "text",
-                                                            text: " " ,
+                                                            text: "www.goog.com",
                                                             marks: [
                                                                     type: "link",
                                                                     attrs: [
-                                                                            href : " "
+                                                                            href : "www.google.com"
                                                                     ]
                                                             ]
                                                     ]
