@@ -31,8 +31,6 @@ class Stride {
 
                             ]
                     ],
-
-
             ]
     ]
     String sendSuccess(clientHostName, fullPath, authToken, message) {
