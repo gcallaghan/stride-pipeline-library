@@ -34,7 +34,7 @@ class Stride {
                     ],
             ]
     ]
-    String sendSuccess(conversationId, message, strideToken, orgId) {
+    String sendSuccess(String conversationId, String message,String strideToken,String orgId) {
         requestBody.content[0].content[0].content[0].text = message
         requestBody.content[0].attrs.panelType = paneltype.SUCCESS
         RESTClient client = new RESTClient(strideHostname)
@@ -44,7 +44,7 @@ class Stride {
         println response.data
         return response.data['cloudId']
     }
-    String sendFailure(conversationId, message, strideToken, orgId) {
+    String sendFailure(String conversationId, String message,String strideToken,String orgId) {
         requestBody.content[0].content[0].content[0].text = message
         requestBody.content[0].attrs.panelType = paneltype.FAIL
         RESTClient client = new RESTClient(strideHostname)
@@ -53,7 +53,7 @@ class Stride {
         def response = client.post(path: getConversationPath(orgId,conversationId), requestContentType: "application/json", body: requestBody)
         println response.data
     }
-    String sendInfo(conversationId, message, strideToken, orgId) {
+    String sendInfo(String conversationId, String message,String strideToken,String orgId) {
         requestBody.content[0].content[0].content[0].text = message
         requestBody.content[0].attrs.panelType = paneltype.INFO
         RESTClient client = new RESTClient(strideHostname)
@@ -63,7 +63,7 @@ class Stride {
         println response.data
     }
 
-    def getConversationPath(orgId,conversationId) {
+    def getConversationPath(String orgId, String conversationId) {
         return "/site/${orgId}/conversation/${conversationId}/message"
     }
 }
