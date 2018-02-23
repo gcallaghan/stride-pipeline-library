@@ -45,7 +45,7 @@ class Stride {
         println response.data
         return response.data['cloudId']
     }
-    String sendFailure() {
+    String sendFailure(clientHostName, fullPath, authToken, message) {
         requestBody.content[0].content[0].content[0].text = message
         requestBody.content[0].attrs.panelType = paneltype.FAIL
         RESTClient client = new RESTClient(clientHostName)
@@ -54,7 +54,7 @@ class Stride {
         def response = client.post(path: fullPath, requestContentType: "application/json", body: requestBody)
         println response.data
     }
-    String sendInfo() {
+    String sendInfo(clientHostName, fullPath, authToken, message) {
         requestBody.content[0].content[0].content[0].text = message
         requestBody.content[0].attrs.panelType = paneltype.INFO
         RESTClient client = new RESTClient(clientHostName)
