@@ -26,8 +26,19 @@ class Stride {
                                                     [
                                                             type: "text",
                                                             text: null
+                                                    ],
+                                                    [
+                                                            type: "text",
+                                                            text: " " ,
+                                                            marks: [
+                                                                    type: "link",
+                                                                    attrs: [
+                                                                            href : " "
+                                                                    ]
+                                                            ]
                                                     ]
-                                            ]
+                                            ],
+
                                     ]
 
                             ]
