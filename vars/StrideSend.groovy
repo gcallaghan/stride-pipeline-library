@@ -3,7 +3,7 @@
 
 def call(conversationId, messageIcon, message) {
     println "Request made to stride"
-    message = message.toString()
+//    message = message.toString()
     println message
     def stride = new org.lib.Stride()
     if (messageIcon == "warning")
