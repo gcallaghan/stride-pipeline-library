@@ -6,7 +6,7 @@ import static groovyx.net.http.ContentType.*
 import groovy.json.JsonSlurper
 
 class Stride {
-    String sendSuccess(clientHostName, fullPath, authToken) {
+    String sendSuccess(clientHostName, fullPath, authToken, message) {
 
         def requestBody = [
                 version: 1,
@@ -14,7 +14,7 @@ class Stride {
                 content: [
                         [
                                 type   : "panel",
-                                attrs  : [panelType: "warning"
+                                attrs  : [panelType: "tip"
                                 ],
                                 content: [
                                         [
@@ -22,7 +22,7 @@ class Stride {
                                                 content: [
                                                         [
                                                                 type: "text",
-                                                                text: "Build Fail"
+                                                                text: null
                                                         ]
                                                 ]
                                         ]
@@ -33,6 +33,7 @@ class Stride {
 
                 ]
         ]
+        requestBody.content[0].content[0].content[0].text = message
         RESTClient client = new RESTClient(clientHostName)
         client.headers['Authorization'] = authToken
         client.ignoreSSLIssues()
