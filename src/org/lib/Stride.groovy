@@ -7,9 +7,9 @@ import static groovyx.net.http.ContentType.*
 class Stride {
     String strideHostname = 'https://api.atlassian.com'
     def paneltype = [
-            FAIL : "warning",
-            INFO : "info",
-            SUCCESS :  "tip"
+            FAIL   : "warning",
+            INFO   : "info",
+            SUCCESS: "tip"
     ]
     def requestBody = [
             version: 1,
@@ -28,12 +28,14 @@ class Stride {
                                                             text: null
                                                     ],
                                                     [
-                                                            type: "text",
-                                                            text: "www.goog.com",
+                                                            type : "text",
+                                                            text : "www.google.com",
                                                             marks: [
-                                                                    type: "link",
-                                                                    attrs: [
-                                                                            href : "www.google.com"
+                                                                    [
+                                                                            type : "link",
+                                                                            attrs: [
+                                                                                    href: "www.google.com"
+                                                                            ]
                                                                     ]
                                                             ]
                                                     ]
@@ -45,32 +47,35 @@ class Stride {
                     ],
             ]
     ]
-    String sendSuccess(String conversationId, String message,String strideToken,String orgId) {
+
+    String sendSuccess(String conversationId, String message, String strideToken, String orgId) {
         requestBody.content[0].content[0].content[0].text = message
         requestBody.content[0].attrs.panelType = paneltype.SUCCESS
         RESTClient client = new RESTClient(strideHostname)
         client.headers['Authorization'] = strideToken
         client.ignoreSSLIssues()
-        def response = client.post(path: getConversationPath(orgId,conversationId), requestContentType: "application/json", body: requestBody)
+        def response = client.post(path: getConversationPath(orgId, conversationId), requestContentType: "application/json", body: requestBody)
         println response.data
         return response.data['cloudId']
     }
-    String sendFailure(String conversationId, String message,String strideToken,String orgId) {
+
+    String sendFailure(String conversationId, String message, String strideToken, String orgId) {
         requestBody.content[0].content[0].content[0].text = message
         requestBody.content[0].attrs.panelType = paneltype.FAIL
         RESTClient client = new RESTClient(strideHostname)
         client.headers['Authorization'] = strideToken
         client.ignoreSSLIssues()
-        def response = client.post(path: getConversationPath(orgId,conversationId), requestContentType: "application/json", body: requestBody)
+        def response = client.post(path: getConversationPath(orgId, conversationId), requestContentType: "application/json", body: requestBody)
         println response.data
     }
-    String sendInfo(String conversationId, String message,String strideToken,String orgId) {
+
+    String sendInfo(String conversationId, String message, String strideToken, String orgId) {
         requestBody.content[0].content[0].content[0].text = message
         requestBody.content[0].attrs.panelType = paneltype.INFO
         RESTClient client = new RESTClient(strideHostname)
         client.headers['Authorization'] = strideToken
         client.ignoreSSLIssues()
-        def response = client.post(path: getConversationPath(orgId,conversationId), requestContentType: "application/json", body: requestBody)
+        def response = client.post(path: getConversationPath(orgId, conversationId), requestContentType: "application/json", body: requestBody)
         println response.data
     }
 
