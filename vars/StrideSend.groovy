@@ -1,7 +1,7 @@
 #!/bin/env groovy
 
 
-def call(conversationId, messageIcon, message) {
+def call(String conversationId, String messageIcon, String message) {
     println "Request made to stride"
 //    message = message.toString()
     println message
