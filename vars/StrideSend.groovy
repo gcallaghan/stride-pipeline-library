@@ -3,7 +3,7 @@
 
 def call(conversationId, messageIcon, message) {
     println "Request made to stride"
-
+    message = message.toString()
     def stride = new org.lib.Stride()
     if (messageIcon == "warning")
         stride.sendFailure(conversationId, message, "${env.STRIDE_TOKEN}", "${env.STRIDE_ORGID}")
