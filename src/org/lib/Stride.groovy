@@ -64,7 +64,7 @@ class Stride {
     }
 
     def getConversationPath(orgId,conversationId) {
-        return "/site/${orgId}/conversation/${conversationId}"
+        return "/site/${orgId}/conversation/${conversationId}/message"
     }
 }
 
