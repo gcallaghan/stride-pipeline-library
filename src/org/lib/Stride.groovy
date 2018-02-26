@@ -27,19 +27,7 @@ class Stride {
                                                             type: "text",
                                                             text: null
                                                     ],
-                                                    [
-                                                            type : "text",
-                                                            text : "www.google.com",
-                                                            marks: [
-                                                                    [
-                                                                            type : "link",
-                                                                            attrs: [
-                                                                                    href: "www.google.com"
-                                                                            ]
-                                                                    ]
-                                                            ]
-                                                    ]
-                                            ],
+                                            ]
 
                                     ]
 
@@ -79,6 +67,13 @@ class Stride {
         println response.data
     }
 
+    String updateRequestBody(String message) {
+        //if matches regex
+
+//        if(message =~ ) {
+//            //set string
+//        }
+    }
     static def getConversationPath(String orgId, String conversationId) {
         return "/site/${orgId}/conversation/${conversationId}/message"
     }
