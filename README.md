@@ -33,10 +33,10 @@ String Message: message you want posted
 ### Examples
 
 StrideSend("someId","info", "Success: Sonarqube scan complete: http://sonarqube.liatr.io/dashboard?id=pnc")
-![](images/infoConfig.png)
+![](images/info.png)
  
 StrideSend(someId, "warning", Pipeline failed: ${RUN_DISPLAY_URL} with changelist: ${RUN_CHANGES_DISPLAY_URL}")
 ![](images/warning.png)
 
 StrideSend(someId, "tip","PR is ready to merge ${CHANGE_URL}")
-![](image/tip.png)
+![](images/tip.png)
