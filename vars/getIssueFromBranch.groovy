@@ -5,7 +5,7 @@ def call() {
         echo "Jira isssue is ${jiraIssue}"
         return jiraIssue
     }
-    catch {
+    catch(e) {
         throw Exception("Branch does not contain a reference to a ticket")
     }
     if (jiraIssue?.trim())
