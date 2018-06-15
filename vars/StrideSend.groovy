@@ -2,7 +2,7 @@
 
 import org.lib.Stride
 
-@NonCPS
+
 def call(String conversationId, String messageIcon, String message) {
     println("Request made to stride")
     def stride = new Stride()
