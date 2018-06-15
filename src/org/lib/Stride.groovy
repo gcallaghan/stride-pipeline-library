@@ -35,7 +35,8 @@ class Stride {
                     ],
             ]
     ]
-
+    
+    @NonCPS
     String sendSuccess(String conversationId, String message, String strideToken, String orgId) {
         requestBody.content[0].content[0].content[0].text = message
         requestBody.content[0].attrs.panelType = paneltype.SUCCESS
@@ -46,7 +47,7 @@ class Stride {
         println response.data
         return response.data['cloudId']
     }
-
+    @NonCPS
     String sendFailure(String conversationId, String message, String strideToken, String orgId) {
         requestBody.content[0].content[0].content[0].text = message
         requestBody.content[0].attrs.panelType = paneltype.FAIL
@@ -57,6 +58,7 @@ class Stride {
         println response.data
     }
 
+    @NonCPS
     String sendInfo(String conversationId, String message, String strideToken, String orgId) {
         requestBody.content[0].content[0].content[0].text = message
         requestBody.content[0].attrs.panelType = paneltype.INFO
@@ -66,7 +68,8 @@ class Stride {
         def response = client.post(path: getConversationPath(orgId, conversationId), requestContentType: "application/json", body: requestBody)
         println response.data
     }
-
+    
+    @NonCPS
     String updateRequestBody(String message) {
         //if matches regex
 
